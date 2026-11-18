@@ -64,6 +64,7 @@
     overflow-y:auto;transform:translateX(105%);transition:transform 1s cubic-bezier(.2,.8,.2,1);
     background:linear-gradient(90deg,transparent,rgba(0,0,0,.28) 14%,rgba(0,0,0,.42));scrollbar-width:none}
   #panel::-webkit-scrollbar{display:none}
+  #panel{-webkit-mask-image:linear-gradient(to bottom,transparent 0,transparent 84px,#000 128px);mask-image:linear-gradient(to bottom,transparent 0,transparent 84px,#000 128px)}
   body.is-detail #panel{transform:none}
   .back{display:inline-flex;gap:10px;align-items:center;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-bottom:34px;transition:color .3s}
   .back:hover{color:var(--ink)}
@@ -105,6 +106,66 @@
   .buy:active{transform:scale(.99)}
   .buy span{font-family:var(--serif);font-size:20px;letter-spacing:.04em;text-transform:none}
 
+  /* ---------- PANEL EKLERİ ---------- */
+  .p-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:34px}
+  .p-top .back{margin-bottom:0}
+  .p-nav{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-size:15px;color:var(--muted)}
+  .p-nav i{font-style:normal;opacity:.5}
+  .p-nav button{width:34px;height:34px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;transition:border-color .3s}
+  .p-nav button:hover{border-color:var(--accent)}
+  .p-nav svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.5}
+  .journey{margin-top:34px;padding:22px 22px 18px;border:1px solid var(--line);border-radius:6px;background:rgba(255,255,255,.02)}
+  .j-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:16px}
+  .j-read{font-size:12px;color:var(--muted);text-align:right;min-height:1.4em}
+  .j-read b{color:var(--ink);font-weight:500}
+  .j-chart{position:relative;height:150px;cursor:crosshair;touch-action:none}
+  .j-chart svg{width:100%;height:100%;display:block;overflow:visible}
+  .j-chart path{stroke-width:1.2;vector-effect:non-scaling-stroke;stroke-dasharray:1400;stroke-dashoffset:1400;animation:draw 1.6s cubic-bezier(.3,.7,.2,1) forwards}
+  .j-top{fill:color-mix(in srgb,var(--accent) 22%,transparent);stroke:color-mix(in srgb,var(--accent) 55%,#fff)}
+  .j-heart{fill:color-mix(in srgb,var(--accent) 34%,transparent);stroke:var(--accent);animation-delay:.15s!important}
+  .j-base{fill:color-mix(in srgb,var(--accent) 16%,#000 30%);stroke:color-mix(in srgb,var(--accent) 60%,#000);animation-delay:.3s!important}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  #jCur{stroke:rgba(246,239,233,.55);stroke-width:1;vector-effect:non-scaling-stroke;stroke-dasharray:3 3}
+  .j-dots i{position:absolute;width:9px;height:9px;margin:-4.5px 0 0 -4.5px;border-radius:50%;background:var(--ink);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 45%,transparent);transition:opacity .2s;pointer-events:none}
+  .j-ticks{position:absolute;left:0;right:0;bottom:-20px;height:14px}
+  .j-ticks span{position:absolute;transform:translateX(-50%);font-size:10px;letter-spacing:.08em;color:var(--muted);white-space:nowrap}
+  .j-ticks span:first-child{transform:none}.j-ticks span:last-child{transform:translateX(-100%)}
+  .j-legend{display:flex;gap:16px;margin-top:32px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);align-items:center}
+  .j-legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:7px;vertical-align:-1px}
+  .j-legend .lt::before{background:color-mix(in srgb,var(--accent) 55%,#fff)}
+  .j-legend .lh::before{background:var(--accent)}
+  .j-legend .lb::before{background:color-mix(in srgb,var(--accent) 60%,#000)}
+  .j-legend em{margin-left:auto;font-style:normal;text-transform:none;letter-spacing:.02em;font-family:var(--serif);font-size:15px;color:var(--ink)}
+  .accords{margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
+  .acc-bar{display:flex;height:6px;border-radius:3px;overflow:hidden;gap:2px}
+  .acc-bar i{background:color-mix(in srgb,var(--accent) calc(var(--o)*100%),#1a1016);transform-origin:left;animation:grow2 1.2s cubic-bezier(.2,.8,.2,1) both .4s}
+  @keyframes grow2{from{transform:scaleX(0)}}
+  .acc-legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:12px;font-size:12px;color:rgba(246,239,233,.8)}
+  .acc-legend b{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:7px;background:color-mix(in srgb,var(--accent) calc(var(--o)*100%),#1a1016)}
+  .acc-legend em{font-style:normal;color:var(--muted)}
+  .engrave{margin-top:30px;padding:18px 20px;border:1px solid var(--line);border-radius:6px}
+  .eg-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px;font-family:var(--serif);font-size:19px}
+  .eg-head small{font-family:var(--sans);font-size:11px;color:var(--muted)}
+  .eg-row{display:flex;gap:10px}
+  .eg-row input{flex:1;min-width:0;background:transparent;border:0;border-bottom:1px solid var(--line);color:var(--ink);font-family:var(--serif);font-style:italic;font-size:22px;padding:8px 2px;outline:none;transition:border-color .3s}
+  .eg-row input:focus{border-color:var(--accent)}
+  .eg-row input::placeholder{color:rgba(246,239,233,.35)}
+  .eg-style{display:flex;gap:6px}
+  .eg-style button{width:42px;height:42px;border:1px solid var(--line);border-radius:4px;font-size:14px;color:var(--muted);transition:all .3s}
+  .eg-style button i{font-family:var(--serif);font-size:19px}
+  .eg-style button.on{border-color:var(--accent);color:var(--ink);background:color-mix(in srgb,var(--accent) 14%,transparent)}
+  .p-next{margin-top:26px;padding:20px 0 6px;border-top:1px solid var(--line);cursor:pointer;display:grid;grid-template-columns:auto 1fr;gap:2px 16px;align-items:baseline}
+  .p-next small{grid-row:span 2;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+  .p-next strong{font-family:var(--serif);font-weight:300;font-style:italic;font-size:30px;transition:color .3s}
+  .p-next em{font-style:normal;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  .p-next:hover strong{color:var(--accent)}
+  .snd{width:38px;height:38px;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;gap:2px;transition:border-color .3s}
+  .snd:hover{border-color:var(--accent)}
+  .snd i{width:2px;height:12px;background:var(--ink);border-radius:1px;animation:eq 1s ease-in-out infinite;transform-origin:center}
+  .snd i:nth-child(2){animation-delay:-.3s}.snd i:nth-child(3){animation-delay:-.6s}.snd i:nth-child(4){animation-delay:-.15s}
+  .snd.off i{animation:none;transform:scaleY(.18);opacity:.6}
+  @keyframes eq{0%,100%{transform:scaleY(.3)}50%{transform:scaleY(1)}}
+  .grain{display:none}
   /* ---------- 3D ANNOTATION ---------- */
   #annot-svg{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:12;opacity:0;transition:opacity .4s}
   #annot-svg line{stroke:var(--accent);stroke-width:1}
@@ -198,13 +259,20 @@
     #panel{top:auto;left:0;width:100%;height:55vh;padding:22px 20px 30px;transform:translateY(105%);
       background:rgba(8,5,9,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line);border-radius:18px 18px 0 0}
     .back{margin-bottom:16px}
+    #panel{-webkit-mask-image:none;mask-image:none}
+    .p-top{margin-bottom:16px}
     #panel h1{font-size:44px;margin:8px 0 10px}
     .desc{font-size:17px}
     .tabs{grid-template-columns:repeat(2,1fr);margin:24px 0 20px}
     .notes li{grid-template-columns:120px 1fr 30px}
     #annot-card{width:190px}
     nav.top a{display:inline}
-    nav.top{gap:14px}
+    nav.top{gap:12px}
+    .snd,.bag{width:34px;height:34px}
+    .journey{padding:16px 14px 14px}
+    .j-head{flex-direction:column;gap:6px}.j-read{text-align:left}
+    .j-chart{height:120px}
+    .j-legend{flex-wrap:wrap}
     nav.top a{font-size:9px;letter-spacing:.14em}
     .logo small{display:none}
     .page{padding:90px 20px 30px;overflow-y:auto;place-items:start}
@@ -242,6 +310,7 @@
   <div class="logo" id="logo">ÉLAN<small>MAISON DE PARFUM</small></div>
   <nav class="top">
     <a href="#koleksiyon" data-page="home" class="on">Koleksiyon</a><a href="#atolye" data-page="atolye">Atölye</a><a href="#hikaye" data-page="hikaye">Hikâye</a><a href="#proje" data-page="proje" class="proto-link">Proje ✦</a>
+    <button class="snd" id="snd" aria-label="Sesi kapat"><i></i><i></i><i></i><i></i></button>
     <span class="bag" id="bag" title="Sepet"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 8h14l-1 13H6L5 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg><em id="bagCount">0</em></span>
   </nav>
 </header>
@@ -280,7 +349,7 @@
       <div class="steps">
         <div><b>01</b><span><strong>Fikir, tasarım ve yönlendirme</strong>Anıl · <a href="https://aniloz.dev" target="_blank" rel="noopener">aniloz.dev</a></span></div>
         <div><b>02</b><span><strong>Yapay zekâ desteği</strong>Kod ve 3D sahne: Claude Code (Anthropic)<br>Arka plan ve stüdyo ortam görselleri: Antigravity (Google)<br>Etiket ve giriş ekranı dokuları: Codex (OpenAI)</span></div>
-        <div><b>03</b><span><strong>Teknoloji</strong>Three.js · WebGL · GSAP. Şişeler kodla üretilen gerçek zamanlı 3D modeller; sprey, süzülme ve yay fiziği tarayıcıda hesaplanıyor.</span></div>
+        <div><b>03</b><span><strong>Teknoloji</strong>Three.js · WebGL · GSAP · Web Audio. Şişeler, çalkalanan sıvı, yansıtıcı zemin, gölgeler ve post-processing tarayıcıda gerçek zamanlı hesaplanıyor; tüm sesler dosya kullanılmadan kodla sentezleniyor.</span></div>
       </div>
       <a class="proto-cta" href="https://aniloz.dev" target="_blank" rel="noopener">Diğer projeler — aniloz.dev ↗</a>
     </div>
@@ -316,6 +385,12 @@
 <script type="module">
 import * as THREE from 'three';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { Reflector } from 'three/addons/objects/Reflector.js';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
+import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
 
 /* =========================================================
    VERİ
@@ -344,7 +419,8 @@ const PERFUMES = [
         list:[['Beyaz Misk',86],['Kaşmir Ağacı',64],['Ambrette',40]] },
     },
     specs:[['Konsantrasyon','Eau de Parfum · %18'],['Hacim','50 ml'],['Kalıcılık','8 – 10 saat'],['Yayılım','Orta'],['Mevsim','İlkbahar · Yaz'],['Zaman','Gündüz']],
-    detailLine:'EDP · 50 ml · 8–10 saat kalıcılık',
+    detailLine:'EDP · 50 ml · 8–10 saat kalıcılık', longevity:10, priceNum:4250,
+    accords:[['Çiçeksi',42],['Pudralı',24],['Meyveli',18],['Misk',16]],
   },
   {
     name:'Rouge Brûlé', family:'Oryantal · Baharatlı', conc:'Extrait de Parfum', ml:'75 ml', price:'₺6.900',
@@ -362,7 +438,8 @@ const PERFUMES = [
         list:[['Oud',92],['Kehribar',76],['Burbon Vanilyası',60]] },
     },
     specs:[['Konsantrasyon','Extrait · %25'],['Hacim','75 ml'],['Kalıcılık','12+ saat'],['Yayılım','Güçlü'],['Mevsim','Sonbahar · Kış'],['Zaman','Gece']],
-    detailLine:'Extrait · 75 ml · 12+ saat kalıcılık',
+    detailLine:'Extrait · 75 ml · 12+ saat kalıcılık', longevity:14, priceNum:6900,
+    accords:[['Baharatlı',34],['Amber',30],['Odunsu',22],['Çiçeksi',14]],
   },
   {
     name:'Nuit Sylvestre', family:'Odunsu · Aromatik', conc:'Eau de Parfum', ml:'100 ml', price:'₺5.400',
@@ -380,7 +457,8 @@ const PERFUMES = [
         list:[['Vetiver',86],['Meşe Yosunu',70],['Atlas Sediri',66]] },
     },
     specs:[['Konsantrasyon','Eau de Parfum · %20'],['Hacim','100 ml'],['Kalıcılık','10 – 12 saat'],['Yayılım','Orta – Güçlü'],['Mevsim','Sonbahar · İlkbahar'],['Zaman','Akşam']],
-    detailLine:'EDP · 100 ml · 10–12 saat kalıcılık',
+    detailLine:'EDP · 100 ml · 10–12 saat kalıcılık', longevity:12, priceNum:5400,
+    accords:[['Odunsu',38],['Aromatik',30],['Yeşil',20],['Yosunsu',12]],
   },
 ];
 
@@ -395,9 +473,12 @@ try { await Promise.all([
 const TAU = Math.PI * 2;
 const canvas = document.getElementById('scene');
 const renderer = new THREE.WebGLRenderer({ canvas, antialias:true });
-renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+let DPR = Math.min(devicePixelRatio, 1.5);
+renderer.setPixelRatio(DPR);
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 1.05;
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.VSMShadowMap;
 
 const scene = new THREE.Scene();
 const pmrem = new THREE.PMREMGenerator(renderer);
@@ -464,7 +545,10 @@ texLoader.load('assets/env_studio.jpg', tex=>{
   scene.environment=pmrem.fromEquirectangular(tex).texture; scene.environmentIntensity=1.6;
 }, undefined, ()=>{});
 
-const key = new THREE.DirectionalLight(0xffffff, 2.2); key.position.set(3, 5, 4); scene.add(key);
+const key = new THREE.DirectionalLight(0xffffff, 2.2); key.position.set(2, 7, 3); scene.add(key);
+key.castShadow = true; key.shadow.mapSize.set(1024,1024);
+Object.assign(key.shadow.camera, { left:-6, right:6, top:6, bottom:-6, near:1, far:20 });
+key.shadow.radius = 14; key.shadow.blurSamples = 20; key.shadow.bias = -0.0006;
 const rim = new THREE.PointLight(PERFUMES[0].accent, 40, 30); rim.position.set(-3.5, 2.5, -2.5); scene.add(rim);
 const rim2 = new THREE.PointLight(PERFUMES[0].accent, 18, 30); rim2.position.set(3.5, -1.5, -2); scene.add(rim2);
 const fill = new THREE.PointLight(0xffffff, 10, 30); fill.position.set(-2, 0, 5); scene.add(fill);
@@ -491,7 +575,7 @@ const shadowTex = (()=>{
   return new THREE.CanvasTexture(c);
 })();
 
-function labelTexture(p, aspect, img){
+function labelTexture(p, aspect, img, engr, engrStyle){
   const W=1024, H=Math.round(W/aspect);
   const c=document.createElement('canvas'); c.width=W; c.height=H; const g=c.getContext('2d');
   const ink=(img && p.labelInk) || '#f1d9a6';
@@ -506,15 +590,27 @@ function labelTexture(p, aspect, img){
     g.lineWidth=1.2; g.strokeRect(36,36,W-72,H-72);
   }
   g.fillStyle=ink; g.textAlign='center'; g.textBaseline='middle';
+  const e = engr ? 1 : 0;           // gravür varsa satırlar yukarı kayar
   if ('letterSpacing' in g) g.letterSpacing='18px';
   g.font=`500 ${Math.round(H*0.1)}px Inter`;
-  g.fillText('ÉLAN', W/2, H*0.27);
+  g.fillText('ÉLAN', W/2, H*(0.27-0.06*e));
   if ('letterSpacing' in g) g.letterSpacing='0px';
-  g.font=`italic 300 ${Math.round(H*0.25)}px "Cormorant Garamond"`;
-  g.fillText(p.name, W/2, H*0.53, W*0.7);
+  g.font=`italic 300 ${Math.round(H*(0.25-0.03*e))}px "Cormorant Garamond"`;
+  g.fillText(p.name, W/2, H*(0.53-0.07*e), W*0.7);
   if ('letterSpacing' in g) g.letterSpacing='8px';
   g.font=`400 ${Math.round(H*0.065)}px Inter`;
-  g.fillText(`${p.conc.toUpperCase()} · ${p.ml.toUpperCase()}`, W/2, H*0.75, W*0.7);
+  g.fillText(`${p.conc.toUpperCase()} · ${p.ml.toUpperCase()}`, W/2, H*(0.75-0.09*e), W*0.7);
+  if (engr){
+    if (engrStyle==='caps'){
+      if ('letterSpacing' in g) g.letterSpacing='10px';
+      g.font=`500 ${Math.round(H*0.085)}px Inter`;
+      g.fillText(engr.toLocaleUpperCase('tr-TR'), W/2, H*0.81, W*0.66);
+    } else {
+      if ('letterSpacing' in g) g.letterSpacing='0px';
+      g.font=`italic 400 ${Math.round(H*0.15)}px "Cormorant Garamond"`;
+      g.fillText(`— ${engr} —`, W/2, H*0.81, W*0.66);
+    }
+  }
   const t=new THREE.CanvasTexture(c);
   t.colorSpace=THREE.SRGBColorSpace; t.anisotropy=8;
   return t;
@@ -535,23 +631,42 @@ function buildBottle(p, bi){
     envMapIntensity:1.4, flatShading:flat, dispersion:0.35, specularIntensity:1,
   });
   const glass = tag(new THREE.Mesh(new THREE.LatheGeometry(prof.map(([x,y])=>new THREE.Vector2(x,y)), seg, phi0), glassMat));
-  body.add(glass);
+  glass.castShadow = true; body.add(glass);
 
   // Sıvı
   const lp=[new THREE.Vector2(0,0.1)];
   const N=30;
   for(let i=0;i<=N;i++){ const y=0.1+(S.fill-0.1)*i/N; lp.push(new THREE.Vector2(radiusAt(prof,y)*0.8, y)); }
   lp.push(new THREE.Vector2(0,S.fill));
+  // Sıvı şişenin omzuna kadar modellenir; görünen seviye dünya uzayında yatay kalan
+  // bir düzlemle kesilir (shader'da discard). Arka yüzler sıvının üst yüzeyi olarak boyanır.
+  lp.length=0; lp.push(new THREE.Vector2(0,0.1));
+  const yMax = neckY-0.1;
+  for(let i=0;i<=N;i++){ const y=0.1+(yMax-0.1)*i/N; lp.push(new THREE.Vector2(radiusAt(prof,y)*0.8, y)); }
+  lp.push(new THREE.Vector2(0,yMax));
+  const liqU = { uPlaneP:{value:new THREE.Vector3()}, uPlaneN:{value:new THREE.Vector3(0,1,0)},
+    uTop:{value:new THREE.Color(p.liquid).lerp(new THREE.Color(p.accent),0.4)} };
   const liquidMat = new THREE.MeshPhysicalMaterial({
-    color:p.liquid, roughness:0.12, metalness:0, clearcoat:1, clearcoatRoughness:0.05,
+    color:p.liquid, roughness:0.12, metalness:0, clearcoat:1, clearcoatRoughness:0.05, side:THREE.DoubleSide,
     emissive:p.liquid, emissiveIntensity:0.12, flatShading:flat, sheen:0.5, sheenColor:new THREE.Color(p.accent),
   });
+  liquidMat.onBeforeCompile = sh => {
+    Object.assign(sh.uniforms, liqU);
+    sh.vertexShader = sh.vertexShader
+      .replace('#include <common>', '#include <common>\nvarying vec3 vWPos;')
+      .replace('#include <project_vertex>', '#include <project_vertex>\nvWPos = (modelMatrix * vec4(transformed, 1.0)).xyz;');
+    sh.fragmentShader = sh.fragmentShader
+      .replace('#include <common>', '#include <common>\nvarying vec3 vWPos; uniform vec3 uPlaneP; uniform vec3 uPlaneN; uniform vec3 uTop;')
+      .replace('void main() {', 'void main() {\n  if (dot(vWPos - uPlaneP, uPlaneN) > 0.0) discard;')
+      .replace('#include <dithering_fragment>', '#include <dithering_fragment>\n  if (!gl_FrontFacing) gl_FragColor.rgb = uTop * 0.8 + min(gl_FragColor.rgb, vec3(0.6)) * 0.12;');
+  };
   const liquid = tag(new THREE.Mesh(new THREE.LatheGeometry(lp, seg, phi0), liquidMat));
+  liquid.castShadow = true;
   body.add(liquid);
 
   // Boyun + sprey
   const collar = tag(new THREE.Mesh(new THREE.CylinderGeometry(0.27,0.27,0.16,48), goldMat));
-  collar.position.y = neckY+0.04; body.add(collar);
+  collar.position.y = neckY+0.04; collar.castShadow = true; body.add(collar);
   const nozzle = new THREE.Group(); body.add(nozzle);
   const stem = tag(new THREE.Mesh(new THREE.CylinderGeometry(0.05,0.05,0.16,16), goldMat)); stem.position.y=neckY+0.18; nozzle.add(stem);
   const act = tag(new THREE.Mesh(new THREE.CylinderGeometry(0.12,0.125,0.13,36), goldMat)); act.position.y=neckY+0.3; nozzle.add(act);
@@ -579,7 +694,7 @@ function buildBottle(p, bi){
     const plate = new THREE.Mesh(new THREE.BoxGeometry(0.66,0.03,0.66), goldMat);
     plate.position.y = capCenter-0.16; capGroup.add(tag(plate));
   }
-  capMesh.position.y = capCenter; capGroup.add(tag(capMesh));
+  capMesh.position.y = capCenter; capMesh.castShadow = true; capGroup.add(tag(capMesh));
 
   // Etiket (gövde yüzeyine oturan bant)
   const L=S.label;
@@ -592,10 +707,16 @@ function buildBottle(p, bi){
   const labelMat = new THREE.MeshStandardMaterial({ map:labelTexture(p,aspect), transparent:true, metalness:0.7, roughness:0.3,
     emissive:0xffffff, emissiveMap:null, emissiveIntensity:0, depthWrite:false });
   labelMat.emissiveMap = labelMat.map;
+  const labelState = { img:null, engr:'', style:'script' };
+  const redrawLabel = () => {
+    const old=labelMat.map;
+    labelMat.map=labelMat.emissiveMap=labelTexture(p,aspect,labelState.img,labelState.engr,labelState.style);
+    if (labelState.img){ labelMat.metalness=0.25; labelMat.roughness=0.45; labelMat.transparent=false; labelMat.depthWrite=true; }
+    labelMat.needsUpdate=true; old.dispose();
+  };
   if (p.labelImg){
     const im=new Image();
-    im.onload=()=>{ const old=labelMat.map; labelMat.map=labelMat.emissiveMap=labelTexture(p,aspect,im);
-      labelMat.metalness=0.25; labelMat.roughness=0.45; labelMat.transparent=false; labelMat.depthWrite=true; labelMat.needsUpdate=true; old.dispose(); };
+    im.onload=()=>{ labelState.img=im; redrawLabel(); };
     im.src=p.labelImg;
   }
   const label = tag(new THREE.Mesh(new THREE.LatheGeometry(lpts, flat?1:28, -a, 2*a), labelMat));
@@ -612,14 +733,15 @@ function buildBottle(p, bi){
   body.position.y = -H/2;
 
   // Gölge
-  const shadow = new THREE.Mesh(new THREE.PlaneGeometry(2.6,2.6), new THREE.MeshBasicMaterial({ map:shadowTex, transparent:true, depthWrite:false, opacity:.5 }));
+  const shadow = new THREE.Mesh(new THREE.PlaneGeometry(2.6,2.6), new THREE.MeshBasicMaterial({ map:shadowTex, transparent:true, depthWrite:false, opacity:.3 }));
   shadow.rotation.x=-Math.PI/2; shadow.position.y = -H/2-0.5; root.add(shadow);
 
   scene.add(root);
 
   return {
     p, bi, root, float, spin, body, glass, liquid, capGroup, capMesh, nozzle, hole, label, ring, shadow,
-    H, neckY, labelY:L.y, labelH:L.h,
+    H, neckY, labelY:L.y, labelH:L.h, labelState, redrawLabel, liqU, fillY:S.fill,
+    wob:new THREE.Vector2(), wobV:new THREE.Vector2(), pvx:0, pvz:0, pSpin:0,
     anchors:{
       top: new THREE.Vector3(0, capCenter, 0),
       heart: new THREE.Vector3(0, S.fill*0.78, 0),
@@ -637,6 +759,165 @@ function buildBottle(p, bi){
 const bottles = PERFUMES.map((p,i)=>buildBottle(p,i));
 const pickables = [];
 bottles.forEach(b => b.root.traverse(o => { if (o.isMesh && o.userData.bi!==undefined) pickables.push(o); }));
+
+/* =========================================================
+   ZEMİN: bulanık yansıma + gerçek gölge
+   ========================================================= */
+const FLOOR_Y = -1.75;
+const floorUni = { uTint:{ value:new THREE.Color() }, uStrength:{ value:0.6 } };
+const reflector = new Reflector(new THREE.CircleGeometry(16, 96), {
+  clipBias:0.003, textureWidth:1024, textureHeight:1024, color:0xffffff,
+  shader:{
+    name:'SoftFloor',
+    uniforms:{ color:{value:null}, tDiffuse:{value:null}, textureMatrix:{value:null}, ...floorUni },
+    vertexShader:`uniform mat4 textureMatrix; varying vec4 vR; varying vec2 vUv;
+      void main(){ vUv=uv; vR=textureMatrix*vec4(position,1.0); gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0); }`,
+    fragmentShader:`uniform sampler2D tDiffuse; uniform vec3 uTint; uniform float uStrength; varying vec4 vR; varying vec2 vUv;
+      void main(){
+        vec2 uv = vR.xy / vR.w; vec3 c = vec3(0.0); float tot = 0.0;
+        for (int i=-2;i<=2;i++) for (int j=-2;j<=2;j++){
+          vec2 o = vec2(float(i), float(j)) * 0.0032; float w = 1.0/(1.0+float(i*i+j*j));
+          c += texture2D(tDiffuse, uv+o).rgb * w; tot += w; }
+        c /= tot;
+        float r = length(vUv-0.5)*2.0;
+        float fade = smoothstep(0.95, 0.12, r);
+        gl_FragColor = vec4(c*uStrength + uTint*0.05, fade*0.92);
+        #include <tonemapping_fragment>
+        #include <colorspace_fragment>
+      }`
+  }
+});
+reflector.material.transparent = true; reflector.material.depthWrite = false;
+reflector.rotation.x = -Math.PI/2; reflector.position.y = FLOOR_Y; reflector.renderOrder = -0.2;
+scene.add(reflector);
+const shadowCatcher = new THREE.Mesh(new THREE.PlaneGeometry(30,30), new THREE.ShadowMaterial({ opacity:0.42, depthWrite:false }));
+shadowCatcher.rotation.x = -Math.PI/2; shadowCatcher.position.y = FLOOR_Y+0.003; shadowCatcher.receiveShadow = true; shadowCatcher.renderOrder = -0.1;
+scene.add(shadowCatcher);
+// Yansıma çekilirken fotoğraf arka planı, toz ve sahte gölgeler gizlenir
+const _reflRender = reflector.onBeforeRender;
+reflector.onBeforeRender = function(r, sc, cam){
+  const hide = [photoPlane, shadowCatcher, ...bottles.map(b=>b.shadow)];
+  hide.forEach(o=>o.visible=false);
+  _reflRender.call(this, r, sc, cam);
+  hide.forEach(o=>o.visible=true);
+};
+
+/* =========================================================
+   POST-PROCESSING: bloom + kromatik sapma + vinyet + gren
+   ========================================================= */
+const composer = new EffectComposer(renderer);
+composer.addPass(new RenderPass(scene, camera));
+const bloom = new UnrealBloomPass(new THREE.Vector2(512,512), 0.32, 0.55, 0.85);
+composer.addPass(bloom);
+composer.addPass(new OutputPass());
+const finalPass = new ShaderPass({
+  uniforms:{ tDiffuse:{value:null}, uTime:{value:0}, uCA:{value:0.006}, uGrain:{value:0.035}, uRes:{value:new THREE.Vector2(1,1)} },
+  vertexShader:`varying vec2 vUv; void main(){ vUv=uv; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0); }`,
+  fragmentShader:`uniform sampler2D tDiffuse; uniform float uTime, uCA, uGrain; uniform vec2 uRes; varying vec2 vUv;
+    float rnd(vec2 c){ return fract(sin(dot(c, vec2(12.9898,78.233))) * 43758.5453); }
+    void main(){
+      vec2 d = vUv - 0.5; float r2 = dot(d,d); vec2 off = d * r2 * uCA * 4.0;
+      vec3 c = vec3(texture2D(tDiffuse, vUv-off).r, texture2D(tDiffuse, vUv).g, texture2D(tDiffuse, vUv+off).b);
+      float vig = smoothstep(0.9, 0.25, length(d*vec2(1.0,0.92)));
+      c *= mix(0.74, 1.0, vig);
+      c += (rnd(floor(vUv*uRes) + fract(uTime)*91.0) - 0.5) * uGrain;
+      gl_FragColor = vec4(c, 1.0);
+    }`
+});
+composer.addPass(finalPass);
+
+/* =========================================================
+   SES TASARIMI (Web Audio — tüm sesler kodla sentezlenir, dosya yok)
+   ========================================================= */
+const SFX = (() => {
+  let ctx=null, master=null, wet=null, amb=null, noise=null, muted=false, lastHover=0;
+  try { muted = localStorage.getItem('elan-muted')==='1'; } catch(e) {}
+  const CHORDS = [[220,277.18,329.63,440],[146.83,174.61,220,293.66],[164.81,196,246.94,329.63]];
+  const ok = () => ctx && !muted;
+  function init(){
+    if (ctx){ if (ctx.state==='suspended') ctx.resume(); return; }
+    const AC = window.AudioContext || window.webkitAudioContext; if (!AC) return;
+    ctx = new AC();
+    master = ctx.createGain(); master.gain.value = muted ? 0 : 1;
+    const comp = ctx.createDynamicsCompressor(); comp.threshold.value=-18; comp.ratio.value=3;
+    master.connect(comp); comp.connect(ctx.destination);
+    const conv = ctx.createConvolver(); conv.buffer = impulse(3.2, 2.6);
+    wet = ctx.createGain(); wet.connect(conv);
+    const rg = ctx.createGain(); rg.gain.value = 0.32; conv.connect(rg); rg.connect(master);
+    noise = ctx.createBuffer(1, ctx.sampleRate*2, ctx.sampleRate);
+    const nd = noise.getChannelData(0); for (let i=0;i<nd.length;i++) nd[i]=Math.random()*2-1;
+    startAmbient();
+  }
+  function impulse(sec, decay){
+    const n=ctx.sampleRate*sec, b=ctx.createBuffer(2,n,ctx.sampleRate);
+    for (let c=0;c<2;c++){ const d=b.getChannelData(c); for (let i=0;i<n;i++) d[i]=(Math.random()*2-1)*Math.pow(1-i/n,decay); }
+    return b;
+  }
+  function route(node, send=0.3, pan=0){
+    let n=node;
+    if (pan && ctx.createStereoPanner){ const pn=ctx.createStereoPanner(); pn.pan.value=pan; n.connect(pn); n=pn; }
+    n.connect(master);
+    if (send){ const sg=ctx.createGain(); sg.gain.value=send; n.connect(sg); sg.connect(wet); }
+  }
+  function env(g, t0, a, peak, d){ g.gain.setValueAtTime(0.0001,t0); g.gain.exponentialRampToValueAtTime(peak,t0+a); g.gain.exponentialRampToValueAtTime(0.0001,t0+a+d); }
+  function tone(freq, type, t0, a, peak, d, send=0, pan=0){
+    const o=ctx.createOscillator(); o.type=type; o.frequency.value=freq;
+    const g=ctx.createGain(); env(g,t0,a,peak,d); o.connect(g); route(g,send,pan);
+    o.start(t0); o.stop(t0+a+d+0.05);
+  }
+  function noiseSrc(t0, dur){ const s=ctx.createBufferSource(); s.buffer=noise; s.loop=true; s.start(t0, Math.random()*1.5); s.stop(t0+dur); return s; }
+  function startAmbient(){
+    const t=ctx.currentTime;
+    const lp=ctx.createBiquadFilter(); lp.type='lowpass'; lp.frequency.value=520; lp.Q.value=0.7;
+    const g=ctx.createGain(); g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(0.05,t+4);
+    const lfo=ctx.createOscillator(); lfo.frequency.value=0.07; const lg=ctx.createGain(); lg.gain.value=220;
+    lfo.connect(lg); lg.connect(lp.frequency); lfo.start();
+    const oscs = CHORDS[0].map((f,k)=>{
+      const o=ctx.createOscillator(); o.type = k===0 ? 'sine' : 'sawtooth'; o.frequency.value=f/2; o.detune.value=(k-1.5)*6;
+      const og=ctx.createGain(); og.gain.value = k===0 ? 0.9 : 0.2; o.connect(og); og.connect(lp); o.start(); return o;
+    });
+    lp.connect(g); route(g,0.6); amb={oscs,g};
+  }
+  return {
+    init,
+    get muted(){ return muted; },
+    setMuted(m){ muted=m; try{ localStorage.setItem('elan-muted', m?'1':'0'); }catch(e){} if (ctx) master.gain.setTargetAtTime(m?0:1, ctx.currentTime, 0.08); },
+    setScene(i){ if (!amb) return; const t=ctx.currentTime; amb.oscs.forEach((o,k)=>o.frequency.setTargetAtTime(CHORDS[i][k]/2, t, 0.8)); },
+    spray(){ if (!ok()) return; const t=ctx.currentTime;
+      tone(140,'sine',t,0.003,0.25,0.06);
+      const s=noiseSrc(t,1.3);
+      const bp=ctx.createBiquadFilter(); bp.type='bandpass'; bp.Q.value=0.6;
+      bp.frequency.setValueAtTime(7000,t); bp.frequency.exponentialRampToValueAtTime(3800,t+1.1);
+      const hp=ctx.createBiquadFilter(); hp.type='highpass'; hp.frequency.value=1800;
+      const g=ctx.createGain(); g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(0.38,t+0.025);
+      g.gain.setValueAtTime(0.38,t+0.12); g.gain.exponentialRampToValueAtTime(0.0001,t+1.15);
+      s.connect(bp); bp.connect(hp); hp.connect(g); route(g,0.25,0.15); },
+    capOpen(){ if (!ok()) return; const t=ctx.currentTime;
+      [2637,3951,6100].forEach((f,i)=>tone(f*(1+Math.random()*0.01),'sine',t+i*0.004,0.002,0.09/(i+1),0.5-i*0.1,0.45,0.1));
+      const s=noiseSrc(t,0.14); const bp=ctx.createBiquadFilter(); bp.type='bandpass'; bp.frequency.value=1400; bp.Q.value=1.2;
+      const g=ctx.createGain(); env(g,t,0.01,0.12,0.1); s.connect(bp); bp.connect(g); route(g,0.1); },
+    capClose(){ if (!ok()) return; const t=ctx.currentTime;
+      const o=ctx.createOscillator(); o.frequency.setValueAtTime(260,t); o.frequency.exponentialRampToValueAtTime(90,t+0.12);
+      const g=ctx.createGain(); env(g,t,0.004,0.3,0.16); o.connect(g); route(g,0.15); o.start(t); o.stop(t+0.25);
+      [1975,2960].forEach((f,i)=>tone(f,'sine',t+0.005,0.002,0.06/(i+1),0.35,0.4,-0.1)); },
+    whoosh(dir=1){ if (!ok()) return; const t=ctx.currentTime;
+      const s=noiseSrc(t,0.8); const bp=ctx.createBiquadFilter(); bp.type='bandpass'; bp.Q.value=1.4;
+      bp.frequency.setValueAtTime(300,t); bp.frequency.exponentialRampToValueAtTime(1800,t+0.3); bp.frequency.exponentialRampToValueAtTime(500,t+0.7);
+      const g=ctx.createGain(); g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(0.2,t+0.25); g.gain.exponentialRampToValueAtTime(0.0001,t+0.75);
+      s.connect(bp); bp.connect(g);
+      if (ctx.createStereoPanner){
+        const pn=ctx.createStereoPanner(); pn.pan.setValueAtTime(-0.7*dir,t); pn.pan.linearRampToValueAtTime(0.7*dir,t+0.7);
+        g.connect(pn); pn.connect(master); const sd=ctx.createGain(); sd.gain.value=0.2; pn.connect(sd); sd.connect(wet);
+      } else route(g,0.2); },
+    hover(){ if (!ok()) return; const now=performance.now(); if (now-lastHover<70) return; lastHover=now;
+      tone(2400,'sine',ctx.currentTime,0.002,0.022,0.05,0.05); },
+    chime(i=0){ if (!ok()) return; const t=ctx.currentTime; const sc=[659.25,783.99,880,987.77,1174.66]; const f=sc[i%sc.length];
+      tone(f,'sine',t,0.005,0.11,1.4,0.6); tone(f*2.01,'sine',t,0.003,0.03,0.7,0.6); tone(f*1.5,'triangle',t+0.06,0.005,0.035,1.1,0.6,0.2); },
+    enter(){ if (!ok()) return; const t=ctx.currentTime;
+      [220,329.63,440,554.37,659.25].forEach((f,i)=>tone(f,'sine',t+i*0.09,0.4,0.05,2.4,0.7,(i-2)*0.25)); },
+    type(){ if (!ok()) return; tone(3200+Math.random()*600,'triangle',ctx.currentTime,0.001,0.018,0.03,0.05); },
+  };
+})();
 
 /* =========================================================
    PARÇACIKLAR (sprey + toz)
@@ -729,14 +1010,21 @@ let mode='home', current=0, activeTab=null, busy=false, dragRot=0, entered=false
 window.__setLoad(85);
 const bgTargetA=new THREE.Color(), bgTargetB=new THREE.Color(), rimTarget=new THREE.Color();
 
-function setCurrent(i, instant){
-  if (mode!=='home' || busy || (!instant && (!entered || pageOpen))) return;
-  current=((i%3)+3)%3;
+function applyTheme(){
   const p=PERFUMES[current];
   document.documentElement.style.setProperty('--accent', p.accent);
   bgTargetA.set(p.bg[0]); bgTargetB.set(p.bg[1]); rimTarget.set(p.accent);
   [...dotsEl.children].forEach((d,k)=>d.classList.toggle('on',k===current));
   $('#cnt').textContent='0'+(current+1);
+  SFX.setScene(current);
+}
+function setCurrent(i, instant){
+  if (mode!=='home' || busy || (!instant && (!entered || pageOpen))) return;
+  const next=((i%3)+3)%3;
+  if (!instant && next!==current) SFX.whoosh(((next-current+3)%3)===1 ? 1 : -1);
+  current=next;
+  const p=PERFUMES[current];
+  applyTheme();
   const swap=()=>{ $('#capName').textContent=p.name; $('#capFamily').textContent=p.family; };
   if (instant){ swap(); return; }
   gsap.timeline()
@@ -760,20 +1048,146 @@ function notesHTML(p, id){
 const hintHTML = `<div class="hint"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg>
   <span>Yukarıdan bir bölüm seç ya da doğrudan şişenin bir kısmına tıkla — kamera o bölgeye yaklaşır ve bilgiyi şişenin üzerinde gösterir. Şişeyi sürükleyerek de döndürebilirsin.</span></div>`;
 
+/* ---------- koku yolculuğu: zamana yayılan katman eğrileri ---------- */
+const J_T=12, JW=520, JH=150;
+const jx = t => Math.sqrt(Math.min(t,J_T)/J_T);            // kök ölçek: ilk saatler daha geniş
+const LAYER_F = L => ({
+  top:   t => Math.exp(-t/0.45)*(1-Math.exp(-t/0.03)),
+  heart: t => (1-Math.exp(-t/0.35))*Math.exp(-t/(0.32*L)),
+  base:  t => (1-Math.exp(-t/1.6))*Math.exp(-Math.pow(t/L,3)),
+});
+const LAYER_W = { top:0.82, heart:1, base:0.78 };
+function journey(p){
+  const f=LAYER_F(p.longevity), mx={};
+  for (const k in f){ let m=0; for(let i=1;i<=400;i++) m=Math.max(m,f[k](J_T*i/400)); mx[k]=m; }
+  const val=(k,t)=>f[k](t)/mx[k]*LAYER_W[k];
+  const path=k=>{ let d=`M0,${JH}`; for(let i=0;i<=120;i++){ const t=J_T*(i/120)**2; d+=` L${(jx(t)*JW).toFixed(1)},${(JH-val(k,t)*(JH-12)).toFixed(1)}`; } return d+` L${JW},${JH} Z`; };
+  return { val, path };
+}
+const fmtT = t => t<1 ? `${Math.max(1,Math.round(t*60))}. dakika` : `${Math.floor(t)}. saat${t%1>0.08?` ${Math.round((t%1)*60)} dk`:''}`;
+const LAYER_LABEL = { top:'Üst notalar', heart:'Kalp notaları', base:'Alt notalar' };
+let hoverPart=null, jSweep=null;
+
+function journeyHTML(p){
+  const J=journey(p);
+  const ticks=[[0,'0'],[0.25,'15 dk'],[1,'1 sa'],[4,'4 sa'],[8,'8 sa'],[12,'12 sa']];
+  return `<section class="journey">
+    <div class="j-head"><span class="eyebrow">Koku yolculuğu</span><span class="j-read" id="jRead">Zamanda gezinmek için grafiğin üzerinde gezdir</span></div>
+    <div class="j-chart">
+      <svg id="jChart" viewBox="0 0 ${JW} ${JH}" preserveAspectRatio="none">
+        <path class="j-base"  d="${J.path('base')}"/>
+        <path class="j-heart" d="${J.path('heart')}"/>
+        <path class="j-top"   d="${J.path('top')}"/>
+        <line id="jCur" x1="0" x2="0" y1="0" y2="${JH}"/>
+      </svg>
+      <div class="j-dots"><i data-k="top"></i><i data-k="heart"></i><i data-k="base"></i></div>
+      <div class="j-ticks">${ticks.map(([t,l])=>`<span style="left:${jx(t)*100}%">${l}</span>`).join('')}</div>
+    </div>
+    <div class="j-legend"><span class="lt">Üst</span><span class="lh">Kalp</span><span class="lb">Alt</span><em>Kalıcılık ≈ ${p.longevity} saat</em></div>
+    <div class="accords">
+      <div class="acc-bar">${p.accords.map(([n,v],i)=>`<i style="flex:${v};--o:${1-i*0.2}" title="${n} %${v}"></i>`).join('')}</div>
+      <div class="acc-legend">${p.accords.map(([n,v],i)=>`<span style="--o:${1-i*0.2}"><b></b>${n} <em>%${v}</em></span>`).join('')}</div>
+    </div>
+  </section>`;
+}
+function setJourney(t, fromUser){
+  const p=PERFUMES[current], J=journey(p), svg=$('#jChart'); if(!svg) return;
+  const x=jx(t)*JW; $('#jCur').setAttribute('x1',x); $('#jCur').setAttribute('x2',x);
+  let best='top', bv=-1;
+  panel.querySelectorAll('.j-dots i').forEach(el=>{
+    const k=el.dataset.k, v=J.val(k,t);
+    if (v>bv){ bv=v; best=k; }
+    el.style.left=`${jx(t)*100}%`; el.style.top=`${(1-v*(JH-12)/JH)*100}%`; el.style.opacity=v>0.03?1:0;
+  });
+  hoverPart = bv>0.05 ? best : null;
+  const notes = p.notes[best].list.slice(0,2).map(n=>n[0]).join(', ');
+  $('#jRead').innerHTML = bv>0.05 ? `<b>${fmtT(t)}</b> · ${LAYER_LABEL[best]} baskın — ${notes}` : `<b>${fmtT(t)}</b> · koku tende neredeyse kayboldu`;
+}
+function bindJourney(){
+  const svg=$('#jChart'); if(!svg) return;
+  const wrap=svg.parentElement;
+  const tAt=e=>{ const r=wrap.getBoundingClientRect(); const f=Math.min(Math.max((e.clientX-r.left)/r.width,0),1); return J_T*f*f; };
+  wrap.addEventListener('pointermove',e=>{ if(jSweep){ jSweep.kill(); jSweep=null; } setJourney(tAt(e),true); });
+  wrap.addEventListener('pointerleave',()=>{ hoverPart=null; });
+  wrap.addEventListener('click',e=>{ setJourney(tAt(e),true); if(hoverPart){ selectTab(hoverPart); } });
+  // açılışta zaman çizelgesi bir kez kendiliğinden akar
+  const st={t:0}; setJourney(0.01);
+  jSweep=gsap.to(st,{t:J_T*0.92,duration:3.2,delay:0.6,ease:'power1.inOut',onUpdate:()=>setJourney(st.t),onComplete:()=>{ hoverPart=null; jSweep=null; }});
+}
+
+/* ---------- gravür ---------- */
+const ENGR_PRICE=250;
+const fmtPrice = n => '₺'+n.toLocaleString('tr-TR');
+function priceOf(i){ const b=bottles[i]; return PERFUMES[i].priceNum + (b.labelState.engr?ENGR_PRICE:0); }
+let engrRAF=0;
+function engraveHTML(b){
+  return `<div class="engrave">
+    <div class="eg-head"><span>Kişiye özel gravür</span><small>Etikete altın varakla işlenir · +${fmtPrice(ENGR_PRICE)}</small></div>
+    <div class="eg-row">
+      <input id="engr" maxlength="16" placeholder="Bir isim ya da kısa bir söz…" autocomplete="off" value="${b.labelState.engr.replace(/"/g,'&quot;')}">
+      <div class="eg-style"><button data-s="script" class="${b.labelState.style==='script'?'on':''}" title="El yazısı"><i>Aa</i></button><button data-s="caps" class="${b.labelState.style==='caps'?'on':''}" title="Büyük harf">AA</button></div>
+    </div>
+  </div>`;
+}
+function bindEngrave(){
+  const b=bottles[current], inp=$('#engr'); if(!inp) return;
+  const upd=()=>{ cancelAnimationFrame(engrRAF); engrRAF=requestAnimationFrame(()=>{ b.redrawLabel(); updateBuy(); if(activeTab==='detail') refreshAnnotation(); }); };
+  inp.addEventListener('focus',()=>{ if(activeTab!=='detail') selectTab('detail'); });
+  inp.addEventListener('input',()=>{ b.labelState.engr=inp.value.trim(); SFX.type(); upd(); });
+  panel.querySelectorAll('.eg-style button').forEach(btn=>btn.onclick=()=>{
+    b.labelState.style=btn.dataset.s; panel.querySelectorAll('.eg-style button').forEach(x=>x.classList.toggle('on',x===btn));
+    SFX.chime(2); upd(); if(activeTab!=='detail') selectTab('detail');
+  });
+}
+function updateBuy(){ const el=panel.querySelector('.buy span'); if(el) el.textContent=fmtPrice(priceOf(current)); }
+
 function renderPanel(){
-  const p=PERFUMES[current];
+  const p=PERFUMES[current], b=bottles[current];
+  const prevP=PERFUMES[(current+2)%3], nextP=PERFUMES[(current+1)%3];
   panel.innerHTML=`
-    <button class="back" id="back"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 5l-7 7 7 7"/></svg>Koleksiyona dön</button>
+    <div class="p-top">
+      <button class="back" id="back"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 5l-7 7 7 7"/></svg>Koleksiyona dön</button>
+      <div class="p-nav">
+        <button id="pPrev" title="${prevP.name}" aria-label="Önceki parfüm: ${prevP.name}"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <span>0${current+1} <i>/</i> 03</span>
+        <button id="pNext" title="${nextP.name}" aria-label="Sonraki parfüm: ${nextP.name}"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div>
+    </div>
     <div class="eyebrow">${p.family}</div>
     <h1>${p.name}</h1>
     <p class="desc">${p.desc}</p>
     <div class="meta"><span>${p.conc}</span><span>${p.ml}</span><span>${p.price}</span></div>
+    ${journeyHTML(p)}
     <div class="tabs">${TABS.map((t,i)=>`<button data-tab="${t.id}"><em>0${i+1}</em>${t.label}</button>`).join('')}</div>
     <div class="tab-body" id="tabBody">${hintHTML}</div>
-    <button class="buy">Sepete ekle <span>${p.price}</span></button>`;
+    ${engraveHTML(b)}
+    <button class="buy">Sepete ekle <span>${fmtPrice(priceOf(current))}</span></button>
+    <div class="p-next" id="pNextCard"><small>Sıradaki</small><strong>${nextP.name}</strong><em>${nextP.family}</em></div>`;
   $('#back').onclick=closeDetail;
+  $('#pPrev').onclick=()=>switchDetail(-1);
+  $('#pNext').onclick=()=>switchDetail(1);
+  $('#pNextCard').onclick=()=>switchDetail(1);
   panel.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>selectTab(b.dataset.tab===activeTab?null:b.dataset.tab));
+  bindJourney(); bindEngrave();
   panel.scrollTop=0;
+}
+
+function switchDetail(dir){
+  if (mode!=='detail' || busy) return;
+  busy=true;
+  if (jSweep){ jSweep.kill(); jSweep=null; }
+  bottles[current].spinMode='free';
+  current=(current+dir+3)%3;
+  applyTheme();
+  const b=bottles[current];
+  b.spinMode='target'; b.spinTarget=nearestAngle(b.spinAngle,-0.35); b.wobV.x+=1.8*dir;
+  activeTab=null; hoverPart=null; dragRot=0; document.body.classList.remove('show');
+  SFX.whoosh(dir);
+  const kids=[...panel.children];
+  gsap.to(kids,{opacity:0,x:-18*dir,duration:0.28,stagger:0.015,ease:'power2.in',onComplete:()=>{
+    renderPanel();
+    gsap.from([...panel.children],{opacity:0,x:24*dir,duration:0.55,stagger:0.035,ease:'power3.out',onComplete:()=>{ busy=false; }});
+  }});
 }
 
 const TAB_ANGLE = { top:0.5, heart:-0.45, base:0.35, detail:0 };
@@ -788,11 +1202,16 @@ function selectTab(id){
   b.spinTarget = nearestAngle(b.spinAngle, id ? TAB_ANGLE[id] : -0.35);
   document.body.classList.toggle('show', !!id);
   if (id){
-    const t=TABS.find(x=>x.id===id), i=TABS.indexOf(t);
-    $('#annSmall').textContent=`0${i+1} — ${t.label}`;
-    $('#annText').textContent = id==='detail' ? p.detailLine : p.notes[id].list.map(x=>x[0]).join(' · ');
+    SFX.chime(TABS.findIndex(x=>x.id===id));
+    refreshAnnotation();
     gsap.fromTo('#annot-card',{scale:.94},{scale:1,duration:.5,ease:'back.out(2)'});
   }
+}
+function refreshAnnotation(){
+  if (!activeTab) return;
+  const p=PERFUMES[current], id=activeTab, t=TABS.find(x=>x.id===id), i=TABS.indexOf(t), eg=bottles[current].labelState.engr;
+  $('#annSmall').textContent=`0${i+1} — ${t.label}`;
+  $('#annText').textContent = id==='detail' ? (eg ? `“${eg}” gravürü · ${p.ml}` : p.detailLine) : p.notes[id].list.map(x=>x[0]).join(' · ');
 }
 
 function openDetail(){
@@ -803,12 +1222,13 @@ function openDetail(){
   b.spinMode='target'; b.spinTarget=nearestAngle(b.spinAngle, 0.55);
   gsap.timeline({ onComplete:()=>{ busy=false; } })
     .to({}, { duration:0.5 })
+    .add(()=>SFX.capOpen())
     .to(b.capGroup.position, { y:0.75, duration:0.42, ease:'power2.out' })
     .to(b.capGroup.rotation, { z:0.28, x:-0.1, duration:0.42, ease:'power2.out' }, '<')
     .to(b.nozzle.position, { y:-0.07, duration:0.11, ease:'power2.in' })
-    .add(()=>{ emit(b,70); b.sprayLeft=0.5; })
+    .add(()=>{ emit(b,70); b.sprayLeft=0.5; SFX.spray(); b.wobV.y-=1.2; })
     .to(b.nozzle.position, { y:0, duration:0.3, ease:'power2.out' }, '+=0.4')
-    .to(b.capGroup.position, { y:0, duration:0.5, ease:'power3.inOut' }, '+=0.1')
+    .to(b.capGroup.position, { y:0, duration:0.5, ease:'power3.inOut', onComplete:()=>SFX.capClose() }, '+=0.1')
     .to(b.capGroup.rotation, { z:0, x:0, duration:0.5, ease:'power3.inOut' }, '<')
     .add(()=>{
       mode='detail'; activeTab=null; renderPanel();
@@ -818,7 +1238,8 @@ function openDetail(){
 }
 
 function closeDetail(){
-  if (mode!=='detail') return;
+  if (mode!=='detail' || busy) return;
+  if (jSweep){ jSweep.kill(); jSweep=null; } hoverPart=null;
   selectTab(null);
   mode='home';
   document.body.classList.remove('is-detail','show');
@@ -830,8 +1251,12 @@ $('#next').onclick=()=>setCurrent(current+1);
 addEventListener('keydown',e=>{
   if (e.key==='ArrowRight' && mode==='home') setCurrent(current+1);
   if (e.key==='ArrowLeft' && mode==='home') setCurrent(current-1);
-  if (e.key==='Enter' && mode==='home') openDetail();
+  if (e.key==='Enter' && mode==='home' && !pageOpen) openDetail();
   if (e.key==='Escape') closeDetail();
+  if (mode==='detail' && document.activeElement?.id!=='engr'){
+    if (e.key==='ArrowRight') switchDetail(1);
+    if (e.key==='ArrowLeft') switchDetail(-1);
+  }
 });
 
 /* ---------- işaretçi: tıklama, hover, sürükleme ---------- */
@@ -882,11 +1307,13 @@ function layout(){
   bottles.forEach((b,i)=>{
     let off=((i-current)%3+3)%3; if (off===2) off=-1;
     b.off=off;
+    const crossed = mode==='detail' && b.prevOff!==undefined && Math.abs(off-b.prevOff)===2;
+    b.prevOff=off;
     if (!entered){ b.tPos.set(off*1.5,-6.5,-1); b.tScale=0.5; }
     else if (pageOpen){ b.tPos.set(off*3.2, off===0?0:-0.4, off===0?-2.5:-4); b.tScale=0.8; }
     else if (mode==='detail'){
       if (off===0){ b.tPos.set(0,0,0); b.tScale=1.25; }
-      else { b.tPos.set(off*8,-2.5,-7); b.tScale=0.3; }
+      else { b.tPos.set(off*8,-2.5,-7); b.tScale=0.3; if (crossed){ b.pos.copy(b.tPos); b.vel.set(0,0,0); } }
     } else {
       const sx=mob?2.3:2.8;
       if (off===0){ b.tPos.set(0,0,mode==='spraying'?0.4:0); b.tScale=mode==='spraying'?1.08:1; }
@@ -944,6 +1371,11 @@ function resize(){
   sprayMat.uniforms.uScale.value=s; dustMat.uniforms.uScale.value=s;
   const ph=2*40*Math.tan(THREE.MathUtils.degToRad(camera.fov/2));
   photoPlane.scale.set(ph*camera.aspect, ph, 1); photoUni.scr.value=camera.aspect;
+  const dpr=renderer.getPixelRatio();
+  composer.setPixelRatio(dpr); composer.setSize(w,h);
+  bloom.resolution.set(w*0.5,h*0.5);
+  finalPass.uniforms.uRes.value.set(w*dpr,h*dpr);
+  reflector.getRenderTarget().setSize(Math.round(w*dpr*0.35), Math.round(h*dpr*0.35));
 }
 addEventListener('resize',resize); resize();
 
@@ -953,6 +1385,7 @@ bgUni.uA.value.copy(bgTargetA); bgUni.uB.value.copy(bgTargetB);
 const clock=new THREE.Clock();
 const K=70, C=12.5;
 const photoW=new THREE.Vector3(1,0,0), _wT=new THREE.Vector3();
+const perf={acc:0,n:0};
 function tick(){
   const dt=Math.min(clock.getDelta(),1/30), t=clock.elapsedTime;
   layout();
@@ -970,7 +1403,8 @@ function tick(){
     b.float.position.y=bob;
     b.float.rotation.z=Math.sin(t*0.85+b.ph)*0.035 - b.vel.x*0.045;
     b.float.rotation.x=Math.sin(t*0.65+b.ph*1.3)*0.028 + b.vel.z*0.025 + (isCur&&mode!=='detail'? -mouse.y*0.05:0);
-    b.shadow.material.opacity=0.42-bob*1.3;
+    b.shadow.position.y=(FLOOR_Y+0.006-b.pos.y)/b.scale;
+    b.shadow.material.opacity=0.28-bob*0.9;
     b.shadow.scale.setScalar(1-bob*0.7);
 
     // kendi ekseninde dönüş
@@ -981,15 +1415,28 @@ function tick(){
     }
     b.spin.rotation.y=b.spinAngle;
 
+    // sıvı çalkalanması: yay-sönüm sistemi, şişenin ivmesi ve dönüşüyle uyarılır
+    const cl=THREE.MathUtils.clamp, okDt=dt>0.004;
+    const ax=okDt? cl((b.vel.x-b.pvx)/dt,-25,25):0, az=okDt? cl((b.vel.z-b.pvz)/dt,-25,25):0; b.pvx=b.vel.x; b.pvz=b.vel.z;
+    const sv=okDt? cl((b.spinAngle-b.pSpin)/dt,-6,6):0; b.pSpin=b.spinAngle;
+    const sa2=cl(sv-(b.psv||0),-1.5,1.5); b.psv=sv;
+    b.wobV.x += (-b.wob.x*70 - b.wobV.x*2.6 - ax*0.01)*dt;
+    b.wobV.y += (-b.wob.y*70 - b.wobV.y*2.6 - az*0.01)*dt + sa2*0.08;
+    b.wobV.clampScalar(-2.5,2.5);
+    b.wob.x=cl(b.wob.x+b.wobV.x*dt,-0.22,0.22); b.wob.y=cl(b.wob.y+b.wobV.y*dt,-0.22,0.22);
+    b.root.updateMatrixWorld();
+    b.liqU.uPlaneP.value.set(0,b.fillY,0); b.body.localToWorld(b.liqU.uPlaneP.value);
+    b.liqU.uPlaneN.value.set(b.wob.x,1,b.wob.y).normalize();
+
     // sprey
     if (b.sprayLeft>0){ b.sprayLeft-=dt; emit(b, Math.ceil(dt*520)); }
 
     // parça vurguları
-    const on=id=>mode==='detail' && isCur && activeTab===id;
+    const on=id=>mode==='detail' && isCur && (activeTab===id || hoverPart===id);
     const pulse=0.5+0.5*Math.sin(t*4);
     const ease=(m,prop,to)=>{ m[prop]+=(to-m[prop])*(1-Math.exp(-dt*6)); };
     ease(b.hl.top,'emissiveIntensity', on('top')? 0.25+0.35*pulse : 0);
-    ease(b.hl.heart,'emissiveIntensity', on('heart')? 0.35+0.4*pulse : 0.12);
+    ease(b.hl.heart,'emissiveIntensity', on('heart')? 0.22+0.22*pulse : 0.12);
     ease(b.hl.detail,'emissiveIntensity', on('detail')? 0.5+0.6*pulse : 0.08);
     ease(b.hl.base,'opacity', on('base')? 0.45+0.5*pulse : 0);
   });
@@ -1008,6 +1455,7 @@ function tick(){
   const ce=1-Math.exp(-dt*2.2);
   bgUni.uA.value.lerp(bgTargetA,ce); bgUni.uB.value.lerp(bgTargetB,ce);
   rim.color.lerp(rimTarget,ce); rim2.color.lerp(rimTarget,ce);
+  reflector.material.uniforms.uTint.value.copy(bgUni.uA.value);
   photoW.lerp(_wT.set(current===0?1:0, current===1?1:0, current===2?1:0), ce*1.3);
   photoUni.w.value.copy(photoW);
   const hasCur=photoUni.has.value.getComponent(current);
@@ -1023,7 +1471,12 @@ function tick(){
   if (!Number.isFinite(camLook.z)) camLook.copy(lookT);
   camera.position.copy(camPos); camera.lookAt(camLook);
 
-  renderer.render(scene,camera);
+  finalPass.uniforms.uTime.value=t;
+  composer.render(dt);
+  // uyarlanır kalite: kare hızı uzun süre düşükse çözünürlüğü azalt
+  perf.acc+=dt; perf.n++;
+  if (perf.acc>2.5){ const fps=perf.n/perf.acc; perf.acc=0; perf.n=0;
+    if (fps<40 && DPR>0.85 && document.visibilityState==='visible'){ DPR=Math.max(0.85,DPR-0.25); renderer.setPixelRatio(DPR); resize(); } }
   updateAnnotation(t);
   requestAnimationFrame(tick);
 }
@@ -1037,16 +1490,21 @@ function enterSite(){
   if (entered) return;
   entered=true;
   document.body.classList.add('entered');
+  SFX.init(); SFX.setScene(current); SFX.enter(); syncSnd();
   bottles.forEach((b,i)=>{ b.vel.set(0, 2+i, 0); });
   setTimeout(()=>document.getElementById('loader').style.display='none', 1600);
 }
 $('#enter').onclick=enterSite;
-if (new URLSearchParams(location.search).has('skip')) enterSite();
+const QS=new URLSearchParams(location.search);
+{ const pi=parseInt(QS.get('p'),10); if (pi>=1 && pi<=3) setCurrent(pi-1,true); }
+if (QS.has('skip') || QS.has('d')) enterSite();
+if (QS.has('d')) setTimeout(()=>{ openDetail(); const tab=QS.get('t'); if (tab) setTimeout(()=>{ if (TABS.some(x=>x.id===tab)) selectTab(tab); },2600); }, 1400);
 addEventListener('keydown',e=>{ if(!entered && (e.key==='Enter'||e.key===' ')) { e.preventDefault(); e.stopImmediatePropagation(); enterSite(); } }, true);
 
 /* ---------- üst menü ---------- */
 function goPage(name){
   if (busy) { setTimeout(()=>goPage(name), 400); return; }
+  if (entered && (name!=='home') !== pageOpen) SFX.whoosh(name==='home'?-1:1);
   if (mode==='detail') closeDetail();
   document.querySelectorAll('.page').forEach(p=>p.classList.toggle('open', p.id==='page-'+name));
   document.body.classList.toggle('page-open', name!=='home');
@@ -1063,11 +1521,20 @@ panel.addEventListener('click',e=>{
   if (!e.target.closest('.buy')) return;
   bagN++; const c=$('#bagCount'); c.textContent=bagN; c.classList.add('on');
   gsap.fromTo('#bag',{scale:1.25},{scale:1,duration:.6,ease:'elastic.out(1,.4)'});
-  toast(`${PERFUMES[current].name} sepete eklendi`);
+  const eg=bottles[current].labelState.engr;
+  SFX.chime(4);
+  toast(eg ? `${PERFUMES[current].name} — “${eg}” gravürüyle sepete eklendi` : `${PERFUMES[current].name} sepete eklendi`);
 });
 $('#bag').onclick=()=>toast(bagN? `Sepetinde ${bagN} ürün var` : 'Sepetin şu an boş');
-window.__app={bottles,camera,get mode(){return mode},selectTab,openDetail,
-  snap:(q=0.9)=>{ renderer.render(scene,camera); return renderer.domElement.toDataURL('image/jpeg',q); }};
+
+/* ---------- ses düğmesi + arayüz sesleri ---------- */
+function syncSnd(){ const b=$('#snd'); b.classList.toggle('off',SFX.muted); b.setAttribute('aria-label', SFX.muted?'Sesi aç':'Sesi kapat'); b.title=SFX.muted?'Sesi aç':'Sesi kapat'; }
+$('#snd').onclick=()=>{ SFX.init(); SFX.setMuted(!SFX.muted); syncSnd(); if(!SFX.muted) SFX.chime(1); };
+syncSnd();
+document.addEventListener('pointerover',e=>{ if(e.target.closest('button, nav a, .p-next')) SFX.hover(); });
+addEventListener('pointerdown',()=>{ if(entered) SFX.init(); },{capture:true});
+window.__app={bottles,camera,get mode(){return mode},get busy(){return busy},get current(){return current},selectTab,openDetail,switchDetail,
+  snap:(q=0.9)=>{ composer.render(0); return renderer.domElement.toDataURL('image/jpeg',q); }, SFX};
 </script>
 </body>
 </html>
